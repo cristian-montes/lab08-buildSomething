@@ -15,16 +15,15 @@ describe('sends tex messages with rick an morty carackters', () => {
     return setup(pool);
   });
 
-  //POST A NEW ORDER TEST
+  //POST A MESSAGE
   it('creates a new order in our database and sends a text message', () => {
     return request(app)
-      .post('/api/v1/orders')
-      .send({ quantity: 10 })
+      .post('/api/v1/quotesmsg')
+      .send({ quote: 'Morty Smith is Human and Alivee'})
       .then(res => {
-        // expect(createMessage).toHaveBeenCalledTimes(1);
         expect(res.body).toEqual({
           id: '1',
-          quantity: 10
+          quote: 'Morty Smith is Human and Alivee'
         });
       });
   });
