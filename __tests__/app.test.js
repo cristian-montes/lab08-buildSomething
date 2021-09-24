@@ -17,7 +17,7 @@ describe('sends tex messages with rick an morty carackters', () => {
   });
 
   //POST A QUOTE
-  it('creates a new order in our database and sends a text message', () => {
+  it('creates a new order in our database and sends a text message', async () => {
     return request(app)
       .post('/api/v1/quotesmsg/6')
       .send({ quote:'Abadango Cluster Princess you are Alive, because your are decedent of Aliens' })
@@ -31,7 +31,7 @@ describe('sends tex messages with rick an morty carackters', () => {
 
 
   // GET ALL QUOTES FROM DATABASE
-  it('grabs all of the quotes from database', async() => {
+  it('grabs all of the quotes from database', () => {
 
     return request(app)
       .get('/api/v1/quotesmsg')
@@ -44,7 +44,18 @@ describe('sends tex messages with rick an morty carackters', () => {
       });
   });
 
+  // GETS QUOTES BY ID
+  it('grabs quotes by it from database', () => {
+    return request(app)
+      .get('/api/v1/quotesmsg/1')
+      .then(res => {
+        expect(res.body).toEqual({
+          id: '1',
+          quote: 'Abadango Cluster Princess you are Alive, because your are decedent of Aliens'
 
+        });
+      });
+  });
 
 
 
