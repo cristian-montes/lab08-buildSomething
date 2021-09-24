@@ -1,7 +1,8 @@
-import pool from '../lib/utils/pool.js';
-import setup from '../data/setup.js';
-import request from 'supertest';
-import app from '../lib/app.js';
+const pool = require('../lib/utils/pool');
+// const twilio = require('twilio');
+const setup = require('../data/setup');
+const request = require('supertest');
+const app = require('../lib/app');
 
 jest.mock('twilio', () => () => ({
   messages: {
@@ -18,14 +19,15 @@ describe('sends tex messages with rick an morty carackters', () => {
   //POST A MESSAGE
   it('creates a new order in our database and sends a text message', () => {
     return request(app)
-      .post('/api/v1/quotesmsg')
-      .send({ quote: 'Morty Smith is Human and Alivee'})
+      .get('/api/v1/quotesmsg/1')
       .then(res => {
         expect(res.body).toEqual({
           id: '1',
           quote: 'Morty Smith is Human and Alivee'
         });
       });
+
+
   });
 
 

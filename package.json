@@ -1,11 +1,11 @@
 {
-  "name": "Lab08-buildAnyThing",
+  "name": "lab08-buildAnyThing",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --verbose --runInBand --testLocationInResults --setupFiles dotenv/config",
+    "test": "jest --verbose --runInBand --testLocationInResults --setupFiles dotenv/config",
     "test:watch": "npm run test -- --watch",
     "start": "node -r dotenv/config server.js",
     "start:watch": "nodemon -r dotenv/config server.js",
@@ -32,7 +32,9 @@
   "dependencies": {
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
+    "node-fetch": "2.6.1",
     "pg": "^8.7.1",
     "pg-types": "^3.0.1",
     "twilio": "^3.68.0"
