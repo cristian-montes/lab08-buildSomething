@@ -12,7 +12,7 @@ jest.mock('twilio', () => () => ({
 
 
 describe('sends tex messages with rick an morty carackters', () => {
-  beforeEach(() => {
+  beforeAll(() => {
     return setup(pool);
   });
 
@@ -27,8 +27,21 @@ describe('sends tex messages with rick an morty carackters', () => {
           quote: 'Abadango Cluster Princess you are Alive, because your are decedent of Aliens'
         });
       });
+  });
 
 
+  // GET ALL QUOTES FROM DATABASE
+  it('grabs all of the quotes from database', async() => {
+
+    return request(app)
+      .get('/api/v1/quotesmsg')
+      .then(res => {
+        expect(res.body).toEqual([{
+          id: '1',
+          quote: 'Abadango Cluster Princess you are Alive, because your are decedent of Aliens'
+
+        }]);
+      });
   });
 
 
