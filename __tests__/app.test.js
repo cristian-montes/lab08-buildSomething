@@ -70,6 +70,12 @@ describe('sends tex messages with rick an morty carackters', () => {
       });
   });
 
+  //DELETES QUOTE BY ID
+  it('deletes quote by id from the database', async() => {
+    const result = await request(app).delete('/api/v1/quotesmsg/1');
+    expect(result.body).toEqual({});
+  });
+
 
 
 
