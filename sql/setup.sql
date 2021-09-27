@@ -1,6 +1,18 @@
 DROP TABLE IF EXISTS quotesmsg;
+DROP TABLE IF EXISTS locationmesa;
 
 CREATE TABLE quotesmsg (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     quote VARCHAR(512) NOT NULL
-)
+);
+
+
+
+CREATE TABLE locationmesa (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    location_name VARCHAR(512) NOT NULL,
+    kind_of VARCHAR(512) NOT NULL,
+    dimension VARCHAR(512) NOT NULL
+);
+
+
