@@ -12,17 +12,13 @@ describe('sends tex messages with rick an morty carackters', () => {
 
   it('it posts new location in table', () => {
     return request(app)
-      .post('/api/v1/locationmesa/1')
+      .post('/api/v1/locationmesa/locations/1')
       .send({
-        name:'Earth (C-137)',
+        location_name:'Earth (C-137)',
         kind_of: 'Planet',
         dimension: 'Dimension C-137' })
       .then(res => {
-        expect(res.body).toEqual({
-          id: '1',
-          name:'Earth (C-137)',
-          kind_of: 'Planet',
-          dimension: 'Dimension C-137' 
+        expect(res.body).toEqual({ id:'1', location_name:'Earth (C-137)', kind_of: 'Planet', dimension: 'Dimension C-137' 
         });
       });
   });
