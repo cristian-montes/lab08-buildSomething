@@ -34,7 +34,17 @@ describe('it get episodes from rick and morty', () => {
       });
   });
 
-
+  // GETS  LOCATION BY ID
+  it('grabs episodes by it from database', () => {
+    return request(app)
+      .get('/api/v1/episodename/1')
+      .then(res => {
+        expect(res.body).toEqual({
+          id: '1',
+          episode_name:'Pilot'
+        });
+      });
+  });
 
 
 
