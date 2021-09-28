@@ -55,6 +55,15 @@ describe('sends tex messages with rick an morty carackters', () => {
       });
   });
 
+  //DELETES LOCATION BY ID
+  it('it deletes a location by id', () => {
+    return request(app)
+      .delete('/api/v1/locationmesa/1')
+      .then(res => {
+        expect(res.body).toEqual({});
+      });
+  });
+
 
 
 
