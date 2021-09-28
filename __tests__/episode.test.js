@@ -46,6 +46,18 @@ describe('it get episodes from rick and morty', () => {
       });
   });
 
+  //UPDATES EPISODE BY ID
+  it('grabs quote by id from the database and updates it', () => {
+    return request(app)
+      .put('/api/v1/episodename/1')
+      .send({episode_name: 'taco cristian!!!!' })
+      .then((res) => { 
+        expect (res.body).toEqual({
+          id: '1',
+          episode_name:'taco cristian!!!!' 
+        });
+      });
+  });
 
 
 
