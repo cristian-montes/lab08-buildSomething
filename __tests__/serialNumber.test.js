@@ -34,6 +34,18 @@ describe('it gets episodes serial number from rick and morty', () => {
       });
   });
 
+  // GETS QUOTES BY ID
+  it('grabs quotes by it from database', () => {
+    return request(app)
+      .get('/api/v1/episerialnumber/1')
+      .then(res => {
+        expect(res.body).toEqual({
+          id: '1',
+          serial_number:'S01E01'
+        });
+      });
+  });
+
 
 
 
