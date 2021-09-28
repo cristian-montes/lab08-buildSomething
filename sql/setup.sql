@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS quotesmsg;
 DROP TABLE IF EXISTS locationmesa;
 DROP TABLE IF EXISTS episodename;
 DROP TABLE IF EXISTS airdate;
+DROP TABLE IF EXISTS episerialnumber;
 
 CREATE TABLE quotesmsg (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -20,10 +21,13 @@ CREATE TABLE episodename (
     episode_name VARCHAR(512) NOT NULL
 );
 
+
+CREATE TABLE episerialnumber(
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    serial_number VARCHAR(512) NOT NULL
+);
+
 CREATE TABLE airdate (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     air_date VARCHAR(512) NOT NULL
 );
-
-
-
