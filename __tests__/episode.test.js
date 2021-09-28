@@ -21,6 +21,18 @@ describe('it get episodes from rick and morty', () => {
       });
   });
 
+  // GET ALL EPISODES FROM DATABASE
+  it('grabs all of the episodes from database', () => {
+
+    return request(app)
+      .get('/api/v1/episodename/')
+      .then(res => {
+        expect(res.body).toEqual([{
+          id: '1',
+          episode_name:'Pilot'
+        }]);
+      });
+  });
 
 
 
@@ -28,5 +40,7 @@ describe('it get episodes from rick and morty', () => {
 
 
 
-
+  afterAll(() => {
+    pool.end();
+  });
 });
