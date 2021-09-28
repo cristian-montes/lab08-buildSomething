@@ -21,6 +21,23 @@ describe('it gets episodes air date from rick and morty', () => {
       });
   });
 
+  // GET ALL QUOTES FROM DATABASE
+  it('grabs all of the airdates from database', () => {
+
+    return request(app)
+      .get('/api/v1/airdate/')
+      .then(res => {
+        expect(res.body).toEqual([{
+          id: '1',
+          air_date: 'December 2, 2013'
+
+        }]);
+      });
+  });
+
+
+
+
 
 
   afterAll(() => {
