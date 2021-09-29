@@ -59,6 +59,12 @@ describe('it gets episodes serial number from rick and morty', () => {
       });
   });
 
+  //DELETES QUOTE BY ID
+  it('deletes serial number by id from the database', async() => {
+    const result = await request(app).delete('/api/v1/episerialnumber/1');
+    expect(result.body).toEqual({});
+  });
+
 
 
 
