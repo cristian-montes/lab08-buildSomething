@@ -35,13 +35,26 @@ describe('it gets episodes serial number from rick and morty', () => {
   });
 
   // GETS QUOTES BY ID
-  it('grabs quotes by it from database', () => {
+  it('grabs serial numbers by id from database', () => {
     return request(app)
       .get('/api/v1/episerialnumber/1')
       .then(res => {
         expect(res.body).toEqual({
           id: '1',
           serial_number:'S01E01'
+        });
+      });
+  });
+
+  //IT UPDATES SERIAL NUMBER BY ID  
+  it('grabs serial numbers by id from the database and updates it', () => {
+    return request(app)
+      .put('/api/v1/episerialnumber/1')
+      .send({ serial_number:'SimonEse12' })
+      .then((res) => { 
+        expect (res.body).toEqual({
+          id: '1',
+          serial_number:'SimonEse12'
         });
       });
   });
